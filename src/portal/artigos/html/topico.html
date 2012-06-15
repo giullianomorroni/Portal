@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>{{ topico.titulo }} - Giulliano Morroni</title>
+		<meta name="title" content="Giulliano Morroni" />
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
+			<div id="cabecalho" style="position:relative; top:5px; left:55px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
+				{{ topico.titulo }}
+			</div>
+		
+			<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px;">
+				PALAVRAS-CHAVES: 
+				{% for palavra in topico.palavra_chave_set.all %}
+					{{ palavra.chave }} #
+				{% endfor %}
+
+				<br/><br/>
+				<ol>
+					{% for artigo in topico.artigo_set.all %}
+					<li>
+						<a href="/artigo/{{ artigo.url }}">{{ artigo.titulo }}</a>
+					</li>
+					{% endfor %}
+				</ol>
+			</div>
+
+		</div>
+	</body>
+</html>

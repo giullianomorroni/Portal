@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <title>Giulliano Morroni</title>
+    <link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
+	  	<div id="cabecalho" style="position:relative; top:5px; left:55px; height:100px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
+			Giulliano Morroni
+	  	</div>
+
+	  	<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px;">
+	  		{% for topico in topicos %}
+	  		<span style="{{ opcoes.pop }}">
+	  			<a href="topico/{{topico.url}}">{{ topico.titulo }}</a>
+	  		</span>
+	  		{% endfor %}
+		</div>
+    </div>
+
+	<div id="fala" style="position:relative; top:5px; left:55px; height:100px; width:995px;">
+		<div style="position:absolute; margin: 30px 0px 0px 30px; height:130px; width:170px;">
+			{{ noticia.descricao }}
+		</div>
+		<img src="{{ STATICFILES_DIRS }}/static/imagens/img/balao-de-fala.png" alt="balao-de-fala" height="140px" width="240px" style="position:relative; margin: 0px 0px 50px 0px; ">
+		
+	</div>	      
+
+</body>
+</html>
