@@ -29,17 +29,25 @@
 			</div>
 		</div>
 
-		<div id="fala" style="position:relative; top:5px; left:55px; height:100px; width:995px;">
-			<img src="{{ STATICFILES_DIRS }}/static/imagens/img/balao-de-fala.png" alt="" height="100px" width="150px" style="position:relative; margin: 0px 0px 50px 0px;">
-		</div>
 
 		<div id="comentarios" style="position:absolute; top:750px; left:300px; width:995px; ">
+			<h4>...comentários...</h4>
 			{% for comentario in artigo.comentario_set.all %}
 				{{ comentario.comentario }}
+				<span style="margin-left: 10px;">
+					...{{ comentario.autor }}
+				</span>
 				<br/><br/>
-				{{ comentario.autor }}
 			{% endfor %}
 			<br/><br/>
-			<div style="height:80px;width:1px;"></div>
+			<form action="/comentario/novo/" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="id_artigo" value="{{ artigo.id }}" />
+				nome: <input type="text" name="autor" placeholder="nome" /> <br/>
+				<textarea name="comentario" rows="5" cols="30"></textarea> <br/> <br/>
+				<input type="submit" />
+			</form>
+
+		</div>
 	</body>
 </html>
