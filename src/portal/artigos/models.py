@@ -10,7 +10,7 @@ class Artigo(models.Model):
     def __unicode__(self):
         return self.titulo;
     titulo = models.CharField(max_length=250,  blank=False)
-    descricao = models.CharField(max_length=2500,  blank=False)
+    descricao = models.TextField(max_length=2500,  blank=False)
     topico = models.ForeignKey(Topico,  blank=False)
     url = models.CharField(max_length=250,  blank=False)
 
