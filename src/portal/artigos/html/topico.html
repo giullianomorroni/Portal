@@ -4,27 +4,35 @@
 		<title>{{ topico.titulo }} - Giulliano Morroni</title>
 		<meta name="title" content="Giulliano Morroni" />
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+		
+		<div style="position: absolute; margin: 10px 0px 0px 1500px;">
+			<a href="/">
+				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar"/>
+			</a>
+		</div>
+		
 		<div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
 			<div id="cabecalho" style="position:relative; top:5px; left:55px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
 				{{ topico.titulo }}
 			</div>
 		
-			<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px;">
+			<div id="conteudo" style="position:relative; top:30px; left:55px; height:500px; width:995px;">
 				PALAVRAS-CHAVES: 
-				{% for palavra in topico.palavra_chave_set.all %}
-					{{ palavra.chave }} #
+				{% for palavra in palavras %}
+					{{ palavra.chave }}, 
 				{% endfor %}
 
-				<br/><br/>
-				<ol>
+				<div style="position:relative; top:20px;">
 					{% for artigo in topico.artigo_set.all %}
-					<li>
-						<a href="/artigo/{{ artigo.url }}">{{ artigo.titulo }}</a>
-					</li>
+						<p style="font:28px arial, sans-serif; position:relative;">
+							<a href="/artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
+						</p>
 					{% endfor %}
-				</ol>
+				</div>	
+
 			</div>
 
 		</div>

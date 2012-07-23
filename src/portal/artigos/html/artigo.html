@@ -1,23 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<title>{{ artigo.titulo }} - Giulliano Morroni</title>
 		<meta name="title" content="Giulliano Morroni" />
-		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fd3cf31171945b8"></script>
 	</head>
+
 	<body>
-		<div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
-			GERAL
+		<div style="position: absolute; margin: 10px 0px 0px 1500px;">
+			<a href="/topico/{{ artigo.topico.url }}">
+				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar"/>
+			</a>
+		</div>
+		
+		<div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 570px; left: 50%; height:700px;">
 			<div id="cabecalho" style="position:relative; top:5px; left:55px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
 				{{ artigo.topico.titulo }} - {{ artigo.titulo }}
 			</div>
-			<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px; overflow:auto;">
-				{{ artigo.descricao }}
-				<br/><br/>
-				<!-- AddThis Button BEGIN -->
-				<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+			<div id="conteudo" style="position:relative; top:20px; left:55px; width:995px; ">
+				{{ artigo.descricao|safe }}
+			</div>
+
+			<br/>
+
+			<a href="https://github.com/giullianomorroni" >
+					<img src="{{ STATICFILES_DIRS }}/static/imagens/img/github.jpg" style="margin:10px 0px 0px 55px;" title="Visite-me no github !!!" />
+			</a>
+			
+			<div id="comentarios">
+				<div class="addthis_toolbox addthis_default_style " style="position:relative; top: 40px; left: 750px;">
 					<a class="addthis_button_preferred_1"></a>
 					<a class="addthis_button_preferred_2"></a>
 					<a class="addthis_button_preferred_3"></a>
@@ -25,29 +38,32 @@
 					<a class="addthis_button_compact"></a>
 					<a class="addthis_counter addthis_bubble_style"></a>
 				</div>
-				<!-- AddThis Button END -->
+				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=giullianom"></script>
+
+				<br/>
+
+				<div style="position:relative; top: 10px; left: 55px;">
+					<h4> {{ total_com }} comentários...</h4>
+					
+					{% for comentario in comentarios %}
+						{{ comentario.comentario }}
+						<span style="margin-left: 10px;">
+							...{{ comentario.autor }}
+						</span>
+						<br/><br/>
+					{% endfor %}
+					
+					<br/>
+					<form action="/comentario/novo/" method="post">
+						<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='2263fc9c0f348d97f6ea3e018aa5319e' /></div>
+						<input type="hidden" name="id_artigo" value="2" />
+						<input type="text" name="autor" placeholder="nome" required="required"/> <br/>
+						<input type="submit" value="comentar" style="position:absolute; margin: 60px 0px 0px 270px;"/>
+						<textarea name="comentario" rows="5" cols="30" required="required"> </textarea>
+					</form>
+				</div>
 			</div>
 		</div>
 
-
-		<div id="comentarios" style="position:absolute; top:750px; left:300px; width:995px; ">
-			<h4>...comentários...</h4>
-			{% for comentario in artigo.comentario_set.all %}
-				{{ comentario.comentario }}
-				<span style="margin-left: 10px;">
-					...{{ comentario.autor }}
-				</span>
-				<br/><br/>
-			{% endfor %}
-			<br/><br/>
-			<form action="/comentario/novo/" method="post">
-				{% csrf_token %}
-				<input type="hidden" name="id_artigo" value="{{ artigo.id }}" />
-				nome: <input type="text" name="autor" placeholder="nome" /> <br/>
-				<textarea name="comentario" rows="5" cols="30"></textarea> <br/> <br/>
-				<input type="submit" />
-			</form>
-
-		</div>
 	</body>
 </html>

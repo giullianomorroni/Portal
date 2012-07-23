@@ -12,11 +12,13 @@ class gerador:
     def __init__(self):
         print 'Gerador de posicoes';
 
+
+
+
     def gerar(self):
         opcoes = deque();    
-        opcoes.append('position:relative; top:20px; left:55px; height:20px; width:95px; font:24px arial, sans-serif;');
-        opcoes.append('position:relative; top:40px; left:120px; height:20px; width:95px; font:20px arial, sans-serif;');
-        opcoes.append('position:relative; top:60px; left:2000px; height:20px; width:95px; font:30px arial, sans-serif;');
-        opcoes.append('position:relative; top:30px; left:300px; height:20px; width:95px; font:20px arial, sans-serif;');
-        opcoes.append('position:relative; top:70px; left:320px; height:20px; width:95px; font:25px arial, sans-serif;');
+        opcoes.append('position:absolute; top: 230px; left: 600px; font: 25px arial, sans-serif;');
+        opcoes.append('position:absolute; top: 160px; left: 250px; font: 26px arial, sans-serif;');
+        opcoes.append('position:absolute; top: 080px; left: 000px; font: 25px arial, sans-serif;');
+        opcoes.append('position:absolute; top: 040px; left: 420px; font: 23px arial, sans-serif;');
         return opcoes;

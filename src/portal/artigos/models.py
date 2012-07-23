@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 class Topico(models.Model):
@@ -17,8 +18,8 @@ class Artigo(models.Model):
 class PalavraChave(models.Model):
     def __unicode__(self):
         return self.chave;
-    chave = models.CharField(max_length=250,  blank=False)
     topico = models.ForeignKey(Topico,  blank=False)
+    chave = models.CharField(max_length=250,  blank=False)
 
 class Comentario(models.Model):
     def __unicode__(self):

@@ -15,7 +15,7 @@
 
 	  	<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px;">
 	  		{% for topico in topicos %}
-	  		<span style="{{ opcoes.pop }}">
+	  		<span style="{{ opcoes.pop|safe }}">
 	  			<a href="/topico/{{topico.url}}">{{ topico.titulo }}</a>
 	  		</span>
 	  		{% endfor %}
@@ -23,10 +23,11 @@
     </div>
 
 	<div id="fala" style="position:relative; top:5px; left:55px; height:100px; width:995px;">
-		<div style="position:absolute; margin: 30px 0px 0px 30px; height:130px; width:170px;">
+		<div style="position:absolute; margin: 20px 0px 0px 50px; height:130px; width:170px;">
 			{{ noticia.descricao }}
 		</div>
-		<img src="{{ STATICFILES_DIRS }}/static/imagens/img/balao-de-fala.png" alt="balao-de-fala" height="140px" width="240px" style="position:relative; margin: 0px 0px 50px 0px; ">
+
+		<img src="{{ STATICFILES_DIRS }}/static/imagens/img/balao-de-fala.png" alt="balao-de-fala" height="250px" width="250px" alt="Feel Like a Sir" title="Feel Like a Sir" style="position:absolute; margin: 0px 0px 0px 0px;">
 		
 	</div>	      
 
