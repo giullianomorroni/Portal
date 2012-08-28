@@ -8,9 +8,9 @@
 	</head>
 	<body>
 		
-		<div style="position: absolute; margin: 10px 0px 0px 1500px;">
+		<div style="position: absolute; margin: 10px 0px 0px 0px;">
 			<a href="/">
-				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar"/>
+				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar" align="right"/>
 			</a>
 		</div>
 		
@@ -28,7 +28,7 @@
 				<div style="position:relative; top:20px;">
 					{% for artigo in topico.artigo_set.all %}
 						<p style="font:28px arial, sans-serif; position:relative;">
-							<a href="/artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
+							<a href="../artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
 						</p>
 					{% endfor %}
 				</div>	
