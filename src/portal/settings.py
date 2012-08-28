@@ -13,12 +13,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',   # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'portal',                       # Or path to database file if using sqlite3.
-        'USER': 'portal',                       # Not used with sqlite3.
-        'PASSWORD': 'p0rt47',                   # Not used with sqlite3.
-        'HOST': '201.20.20.80',                 # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',                         # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'portal',
+        'USER': 'portal',
+        'PASSWORD': 'p0rt47',
+        'HOST': '201.20.20.80',
+        'PORT': '3306',
     }
 }
 
