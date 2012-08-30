@@ -47,11 +47,13 @@ def sobre(request):
     return render_to_response('sobre.html');
 
 def novo_comentario(request):
-    c = Comentario();
-    c.autor = request.POST['autor'];
-    c.comentario = request.POST['comentario'];
-    artigo = Artigo.objects.get(id = request.POST['id_artigo']);
-    print artigo.id; 
+    try:
+        c = Comentario();
+        c.autor = request.POST['autor'];
+        c.comentario = request.POST['comentario'];
+        artigo = Artigo.objects.get(id = request.POST['id_artigo']);
+    except Artigo.DoesNotExist:
+        return _404(request)
     c.artigo = artigo;
     c.save();
     comentarios = Comentario.objects.filter(artigo = artigo.id)
