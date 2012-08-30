@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ artigo.titulo }} - Giulliano Morroni</title>
-		<meta name="title" content="Giulliano Morroni" />
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>{{ artigo.titulo }}</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 		<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="title" content="{{ artigo.titulo }}" />
+    	<meta name="keywords" content="{{ artigo.topico.titulo }}, {{ artigo.titulo }}" />
+	    <meta name="description" content="{{ artigo.titulo }}" />
+	    <meta content="pt" http-equiv="Content-Language" />
+	    <meta content="0" http-equiv="Expires" />
+	    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control" />
+	    <meta content="no-cache" http-equiv="Pragma" />
+	    <meta name="revisit-after" content="3 days" />
+	    <meta name="author" content="Giulliano Morroni" />
+	    <meta name="language" content="portuguese" />
+	    <meta name="distribution" content="Global" />
+	    <meta name="robots" content="index, follow" />
+	    <meta name="rating" content="General" />
+	    <meta name="geo.country" content="Brasil" />
+	    <meta name="dc.language" content="pt_BR" />
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fd3cf31171945b8"></script>
 	</head>
 
 	<body>
 		<div style="position: absolute; margin: 10px 0px 0px 0px;">
-			<a href="topico/{{ artigo.topico.url }}">
+			<a href="../topico/{{ artigo.topico.url }}">
 				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar" align="right"/>
 			</a>
 		</div>

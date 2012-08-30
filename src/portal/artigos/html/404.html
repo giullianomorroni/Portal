@@ -5,17 +5,19 @@
 		<meta name="title" content="Giulliano Morroni" />
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fd3cf31171945b8"></script>
+		<script type="text/javascript">
+			function home(){
+				window.location = '/';
+			}
+		</script>
 	</head>
 
-	<body>
+	<body onclick="home()">
 		<div style="margin: 50px 0px 0px 100px;">
-			<a href="/">
-				<h2>HTTP 404</h2>
-				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/404.jpg"/>
-				<h2>A página solicitada não existe....</h2>
-			</a>
+			<h2>HTTP 404</h2>
+			<img src="{{ STATICFILES_DIRS }}/static/imagens/img/404.jpg"/>
+			<h2>A página solicitada não existe....</h2>
 		</div>
 	</body>
 
-</html>	
+</html>

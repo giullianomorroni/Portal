@@ -1,24 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>{{ topico.titulo }} - Giulliano Morroni</title>
-		<meta name="title" content="Giulliano Morroni" />
+		<title>{{ topico.titulo }}</title>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 		<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="title" content="{{ topico.titulo }}" />
+    	<meta name="keywords" content="{{ topico.titulo }}" />
+	    <meta name="description" content="Giulliano Morroni" />
+	    <meta content="pt" http-equiv="Content-Language" />
+	    <meta content="0" http-equiv="Expires" />
+	    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control" />
+	    <meta content="no-cache" http-equiv="Pragma" />
+	    <meta name="revisit-after" content="3 days" />
+	    <meta name="author" content="Giulliano Morroni" />
+	    <meta name="language" content="portuguese" />
+	    <meta name="distribution" content="Global" />
+	    <meta name="robots" content="index, follow" />
+	    <meta name="rating" content="General" />
+	    <meta name="geo.country" content="Brasil" />
+	    <meta name="dc.language" content="pt_BR" />
 	</head>
+
 	<body>
-		
+
 		<div style="position: absolute; margin: 10px 0px 0px 0px;">
 			<a href="/">
 				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar" align="right"/>
 			</a>
 		</div>
-		
+
 		<div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
 			<div id="cabecalho" style="position:relative; top:5px; left:55px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
 				{{ topico.titulo }}
 			</div>
-		
+
 			<div id="conteudo" style="position:relative; top:30px; left:55px; height:500px; width:995px;">
 				PALAVRAS-CHAVES: 
 				{% for palavra in palavras %}
