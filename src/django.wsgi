@@ -2,7 +2,7 @@ import os
 import sys
 import django.core.handlers.wsgi
 
-path = '/media/Desenvolvimento/workspace/python/portal/src/portal/'
+path = '/run/media/giulliano/Desenvolvimento/workspace/python/portal/src/portal/'
 if path not in sys.path:
     sys.path.append(path)
 
