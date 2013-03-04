@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html>
 
 <head>
 	<title>Giulliano Morroni</title>
@@ -18,32 +17,72 @@
     <meta name="robots" content="index, follow" />
     <meta name="rating" content="General" />
     <meta name="geo.country" content="Brasil" />
-    <meta name="dc.language" content="pt_BR" />    
+    <meta name="dc.language" content="pt_BR" />
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-34913594-1']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 </head>
 
-<body>
-    <div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
-	  	<div id="cabecalho" style="position:relative; top:5px; left:55px; height:100px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
-			Giulliano Morroni
-	  	</div>
+<html>
+  <body>
+	
 
-	  	<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px;">
-	  		{% for topico in topicos %}
-	  		<span style="{{ opcoes.pop|safe }}">
-	  			<a href="topico/{{topico.url}}">{{ topico.titulo }}</a>
-	  		</span>
-	  		{% endfor %}
+    <div id="divPrincipal" style="border:0px solid #000000; margin-left: -440px; margin-top: -360px; width: 900px; height:680px; left:50%; top:50%; position: absolute;">
+	<img src="/static/imagens/img/nome.png" style="height: 80px; width: 800px;"/>
+      <div id="divCentral" style="border:1px solid #000000; margin: 5px 10px 0px 3px; width:500px; height:500px; position: absolute;">
+        CENTRO
+		{% for artigo in artigos %}
+			<p style="font:16px arial, sans-serif; position:relative;">
+				<a href="../artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
+			</p>
+		{% endfor %}
+      </div>
+      <div id="divLateralDireitaSuperior" style="border:1px solid #000000; margin: 5px 0px 0px 580px; width:200px; height:250px; position: absolute;">
+      	TÓPICOS...<br/>
+  		{% for topico in topicos %}
+	  		<span>
+	  			<a href="topico/{{topico.url}}">{{ topico.titulo }}</a> <br>
+  			</span>
+  		{% endfor %}
+      </div>
+      <div id="divLateralDireitaInferior" style="border:1px solid #000000; margin: 300px 0px 0px 580px; width:200px; height:200px; position: relative;">
+        NOTÍCIAS...<br/>
+  		{% for noticia in noticias %}
+	  		<span>
+	  			<a href="{{noticia.url}}" target="_blank">{{ noticia.titulo }}</a> <br>
+  			</span>
+  		{% endfor %}
+      </div>
+		<div id="imgs" style="position: relative; margin:70px 0px 0px 80px; width: 900px;">
+		  <a href="http://facebook.com/giullianomorroni" target="_blank">
+			<img src="/static/imagens/img/facebook.png" style="margin-left: 50px; "/>
+		  </a>
+
+		  <a href="http://br.linkedin.com/pub/giulliano-morroni/17/698/125" target="_blank">
+			<img src="/static/imagens/img/linkedin.png" style="margin-left: 50px; "/> 
+		  </a>
+
+		  <a href="https://pt.foursquare.com/user/20369491" target="_blank"> 
+			<img src="/static/imagens/img/foursquare.jpg" style="margin-left: 50px; "/> 
+		  </a>
+		  
+		  <a href="https://github.com/giullianomorroni" target="_blank"> 
+			<img src="/static/imagens/img/github.jpg" style="margin-left: 50px; "/>
+		  </a>
+	
+		  <a href="http://www.guj.com.br/posts/listByUser/16519.java" target="_blank"> 
+			<img src="/static/imagens/img/guj.jpg" style="margin-left: 50px; "/> 
+		  </a>
 		</div>
+
     </div>
 
-	<div id="fala" style="position:relative; top:5px; left:55px; height:100px; width:995px;">
-		<div style="position:absolute; margin: 20px 0px 0px 50px; height:130px; width:170px;">
-			{{ noticia.descricao }}
-		</div>
-
-		<img src="{{ STATICFILES_DIRS }}/static/imagens/img/balao-de-fala.png" alt="balao-de-fala" height="250px" width="250px" alt="Feel Like a Sir" title="Feel Like a Sir" style="position:absolute; margin: 0px 0px 0px 0px;">
-		
-	</div>	      
-
-</body>
+  </body>
 </html>

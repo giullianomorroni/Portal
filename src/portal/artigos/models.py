@@ -32,4 +32,5 @@ class Comentario(models.Model):
 class Noticia(models.Model):
     def __unicode__(self):
         return self.descricao;
-    descricao = models.CharField(max_length=250,  blank=False)
+    titulo = models.CharField(max_length=50,  blank=False)
+    url = models.CharField(max_length=200,  blank=False)

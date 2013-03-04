@@ -5,7 +5,7 @@
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 		<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
 		<meta name="title" content="{{ topico.titulo }}" />
-    	<meta name="keywords" content="{{ topico.titulo }}" />
+    	<meta name="keywords" content="{{ p }}" />
 	    <meta name="description" content="Giulliano Morroni" />
 	    <meta content="pt" http-equiv="Content-Language" />
 	    <meta content="0" http-equiv="Expires" />
@@ -19,13 +19,25 @@
 	    <meta name="rating" content="General" />
 	    <meta name="geo.country" content="Brasil" />
 	    <meta name="dc.language" content="pt_BR" />
+	    
+	    <script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-34913594-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	    
 	</head>
 
 	<body>
 
 		<div style="position: absolute; margin: 10px 0px 0px 0px;">
 			<a href="/">
-				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar" align="right"/>
+				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 50px; height: 50px;" title="voltar" align="right"/>
 			</a>
 		</div>
 

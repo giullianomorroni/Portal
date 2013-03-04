@@ -6,9 +6,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 handler404 = 'artigos.views._404'
+handler500 = 'artigos.views._500'
 
 urlpatterns = patterns('',
-    url(r'^$', 'artigos.views.home', name='home'),
+    url(r'^portal/$', 'artigos.views.home', name='home'),
     url(r'^topico/(?P<url>\w+)', 'artigos.views.topico', name='topico'),
     url(r'^artigo/(?P<url>\w+)', 'artigos.views.artigo', name='artigo'),
     url(r'^sobre/$', 'artigos.views.sobre', name='sobre'),

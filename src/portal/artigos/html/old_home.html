@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+	<title>Giulliano Morroni</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<link href="{{ STATICFILES_DIRS }}/static/imagens/css/style.css" rel="stylesheet" type="text/css" />
+	<meta name="title" content="Giulliano Morroni" />
+    <meta name="description" content="Giulliano Morroni" />
+    <meta content="pt" http-equiv="Content-Language" />
+    <meta content="0" http-equiv="Expires" />
+    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control" />
+    <meta content="no-cache" http-equiv="Pragma" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="author" content="Giulliano Morroni" />
+    <meta name="language" content="portuguese" />
+    <meta name="distribution" content="Global" />
+    <meta name="robots" content="index, follow" />
+    <meta name="rating" content="General" />
+    <meta name="geo.country" content="Brasil" />
+    <meta name="dc.language" content="pt_BR" />
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-34913594-1']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</head>
+
+<body>
+    <div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 1100px; left: 50%; height:700px;">
+	  	<div id="cabecalho" style="position:relative; top:5px; left:55px; height:100px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
+			Giulliano Morroni
+	  	</div>
+
+	  	<div id="conteudo" style="position:relative; top:20px; left:55px; height:500px; width:995px;">
+	  		{% for topico in topicos %}
+	  		<span style="{{ opcoes.pop|safe }}">
+	  			<a href="topico/{{topico.url}}">{{ topico.titulo }}</a>
+	  		</span>
+	  		{% endfor %}
+		</div>
+    </div>
+
+	<div id="fala" style="position:relative; top:5px; left:55px; height:100px; width:995px;">
+		<div style="position:absolute; margin: 20px 0px 0px 50px; height:130px; width:170px;">
+			{{ noticia.descricao }}
+		</div>
+
+		<img src="{{ STATICFILES_DIRS }}/static/imagens/img/balao-de-fala.png" alt="balao-de-fala" height="250px" width="250px" alt="Feel Like a Sir" title="Feel Like a Sir" style="position:absolute; margin: 0px 0px 0px 0px;">
+
+	</div>	      
+
+</body>
+</html>

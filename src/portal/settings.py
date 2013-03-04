@@ -9,15 +9,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#superuser giulliano, kama1234
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'portal',
         'USER': 'portal',
         'PASSWORD': 'p0rt47',
-        'HOST': '201.20.20.80',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
@@ -74,7 +72,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    ('imagens', '/media/Desenvolvimento/workspace/python/portal/src/portal/artigos/static_files/'),
+    ('imagens', '/run/media/giulliano/Desenvolvimento/workspace/python/portal/src/portal/artigos/static_files/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -109,7 +107,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/media/Desenvolvimento/workspace/python/portal/src/portal/artigos/html/'
+    '/run//media/giulliano/Desenvolvimento/workspace/python/portal/src/portal/artigos/html/'
 )
 
 INSTALLED_APPS = (

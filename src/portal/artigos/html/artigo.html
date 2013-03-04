@@ -20,15 +20,25 @@
 	    <meta name="geo.country" content="Brasil" />
 	    <meta name="dc.language" content="pt_BR" />
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fd3cf31171945b8"></script>
+	    <script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-34913594-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
 	</head>
 
 	<body>
 		<div style="position: absolute; margin: 10px 0px 0px 0px;">
-			<a href="../topico/{{ artigo.topico.url }}">
-				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 30px; height: 30px;" title="voltar" align="right"/>
+			<a href="/">
+				<img src="{{ STATICFILES_DIRS }}/static/imagens/img/voltar.png"  style="width: 50px; height: 50px;" title="voltar" align="right"/>
 			</a>
 		</div>
-		
+
 		<div id="geral" style="position: absolute; margin: 10px 0px 0px -550px; margin-right: auto; width: 570px; left: 50%; height:700px;">
 			<div id="cabecalho" style="position:relative; top:5px; left:55px; width:995px; padding: 30px 0;font-size: 38px; text-align: center;">
 				{{ artigo.topico.titulo }} - {{ artigo.titulo }}

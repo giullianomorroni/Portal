@@ -9,21 +9,20 @@ from posicao.gerador import gerador;
 #from django.http import HttpResponse
 #from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from ubuntuone.storageprotocol.errors import DoesNotExistError
+#from ubuntuone.storageprotocol.errors import DoesNotExistError
+from portal.mail import Mail
 
 def _404(request):
     return render_to_response('404.html');
 
+def _500(request):
+    return render_to_response('500.html');
+
 def home(request):
     topicos = Topico.objects.all();
-    noticia = Noticia.objects.all();
-    ttl = len(noticia);
-    if ttl == 0:
-        noticia = ['Sem novidade...'];
-        ttl=1;
-    p = gerador();
-    opcoes = p.gerar();
-    return render_to_response('home.html', {'topicos':topicos, 'noticia':noticia[ttl-1], 'opcoes':opcoes});
+    noticias = Noticia.objects.all();
+    artigos = Artigo.objects.all(); #trazeer os mais lidos
+    return render_to_response('home.html', {'topicos':topicos, 'noticias':noticias, 'artigos':artigos});
 
 def topico(request, url):
     try:
@@ -31,15 +30,21 @@ def topico(request, url):
     except Topico.DoesNotExist:
         return _404(request);
     palavras = PalavraChave.objects.filter(topico=topico);
-    return render_to_response('topico.html',  {'topico' : topico, 'palavras' : palavras},  context_instance=RequestContext(request));
+    p = ''
+    for palavra in palavras:
+        p += palavra.chave + ',' 
+
+    return render_to_response('topico.html',  {'topico':topico, 'palavras':palavras, 'p':p},  context_instance=RequestContext(request));
 
 def artigo(request, url):
-    artigo = Artigo.objects.get(url=url)
     comentarios = ['Nenhum comentario'];
     try:
+        artigo = Artigo.objects.get(url=url)
         comentarios = Comentario.objects.filter(artigo = artigo.id);
     except Comentario.DoesNotExist:
         print 'nenhum comentario';
+    except Artigo.DoesNotExist:
+        return _404(request)    
     total_com = len(comentarios);
     return render_to_response('artigo.html',  {'artigo' : artigo, 'comentarios':comentarios, 'total_com': total_com},  context_instance=RequestContext(request));
 
@@ -52,6 +57,8 @@ def novo_comentario(request):
         c.autor = request.POST['autor'];
         c.comentario = request.POST['comentario'];
         artigo = Artigo.objects.get(id = request.POST['id_artigo']);
+        m = Mail()
+        m.send('O artigo %s recebeu um comentário, corre lá...' %artigo.titulo)
     except Artigo.DoesNotExist:
         return _404(request)
     c.artigo = artigo;
