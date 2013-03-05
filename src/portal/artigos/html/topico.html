@@ -19,7 +19,7 @@
 	    <meta name="rating" content="General" />
 	    <meta name="geo.country" content="Brasil" />
 	    <meta name="dc.language" content="pt_BR" />
-	    
+
 	    <script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-34913594-1']);
@@ -54,11 +54,11 @@
 
 				<div style="position:relative; top:20px;">
 					{% for artigo in topico.artigo_set.all %}
-						<p style="font:28px arial, sans-serif; position:relative;">
+						<p style="font:18px arial, sans-serif; position:relative;">
 							<a href="../artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
 						</p>
 					{% endfor %}
-				</div>	
+				</div>
 
 			</div>
 

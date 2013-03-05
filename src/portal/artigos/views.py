@@ -6,6 +6,7 @@
 from django.shortcuts import render_to_response
 from models import Topico, Artigo, Noticia, Comentario, PalavraChave;
 from posicao.gerador import gerador;
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 #from django.http import HttpResponse
 #from django.http import HttpResponseRedirect
 from django.template import RequestContext
@@ -21,20 +22,34 @@ def _500(request):
 def home(request):
     topicos = Topico.objects.all();
     noticias = Noticia.objects.all();
+    
     artigos = Artigo.objects.all(); #trazeer os mais lidos
+    artigos_pg = Paginator(artigos, 10)
+
+    try:
+        page = int(request.GET.get('p', '1'))
+    except ValueError:
+        page = 1
+
+    try:
+        artigos = artigos_pg.page(page)
+    except (EmptyPage, InvalidPage):
+        artigos = artigos_pg.page(artigos_pg.num_pages)
+
     return render_to_response('home.html', {'topicos':topicos, 'noticias':noticias, 'artigos':artigos});
 
 def topico(request, url):
     try:
         topico = Topico.objects.get(url=url)
+        artigos = Artigo.objects.all(); #trazeer os mais lidos
     except Topico.DoesNotExist:
         return _404(request);
     palavras = PalavraChave.objects.filter(topico=topico);
     p = ''
     for palavra in palavras:
-        p += palavra.chave + ',' 
+        p += palavra.chave + ','
 
-    return render_to_response('topico.html',  {'topico':topico, 'palavras':palavras, 'p':p},  context_instance=RequestContext(request));
+    return render_to_response('topico.html',  {'topico':topico, 'palavras':palavras, 'artigos':artigos, 'p':p},  context_instance=RequestContext(request));
 
 def artigo(request, url):
     comentarios = ['Nenhum comentario'];

@@ -35,32 +35,44 @@
 	
 
     <div id="divPrincipal" style="border:0px solid #000000; margin-left: -440px; margin-top: -360px; width: 900px; height:680px; left:50%; top:50%; position: absolute;">
-	<img src="/static/imagens/img/nome.png" style="height: 80px; width: 800px;"/>
-      <div id="divCentral" style="border:1px solid #000000; margin: 5px 10px 0px 3px; width:500px; height:500px; position: absolute;">
-        CENTRO
-		{% for artigo in artigos %}
-			<p style="font:16px arial, sans-serif; position:relative;">
-				<a href="../artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
-			</p>
-		{% endfor %}
-      </div>
-      <div id="divLateralDireitaSuperior" style="border:1px solid #000000; margin: 5px 0px 0px 580px; width:200px; height:250px; position: absolute;">
-      	TÓPICOS...<br/>
-  		{% for topico in topicos %}
-	  		<span>
-	  			<a href="topico/{{topico.url}}">{{ topico.titulo }}</a> <br>
-  			</span>
-  		{% endfor %}
-      </div>
-      <div id="divLateralDireitaInferior" style="border:1px solid #000000; margin: 300px 0px 0px 580px; width:200px; height:200px; position: relative;">
-        NOTÍCIAS...<br/>
-  		{% for noticia in noticias %}
-	  		<span>
-	  			<a href="{{noticia.url}}" target="_blank">{{ noticia.titulo }}</a> <br>
-  			</span>
-  		{% endfor %}
-      </div>
-		<div id="imgs" style="position: relative; margin:70px 0px 0px 80px; width: 900px;">
+		<img src="/static/imagens/img/nome.png" style="height: 80px; width: 800px;"/>
+      	<div id="divCentral" style="border:1px solid #000000; margin: 5px 10px 0px 3px; width:500px; height:500px; position: absolute;absolute;border-radius: 25px;">
+        	<br/>
+			{% for artigo in artigos %}
+				<p style="font:18px arial, sans-serif; position:relative; padding-left: 20px;">
+					<a href="../artigo/{{ artigo.url }}" >{{ artigo.titulo }}</a>
+				</p>
+			{% endfor %}
+		<div style="position: relative; margin: 20px 0px 0px 170px;" >
+	    	<span class="step-links">
+            	<a href="?p={{ contacts.previous_page_number }}">anterior</a>
+		        <span class="current">
+		            {{ artigos.number }} de {{ artigos.paginator.num_pages }}
+		        </span>
+	            <a href="?p={{ artigos.next_page_number }}">próxima</a>
+		    </span>
+		</div>
+      	</div>
+
+            
+		<div id="divLateralDireitaSuperior" style="border:1px solid #000000; margin: 5px 0px 0px 580px; width:220px; height:250px; position: absolute;absolute;border-radius: 25px;  ">
+			<br/>
+			{% for topico in topicos %}
+			<span style="font:14px arial, sans-serif; padding: 5px 0px 0px 10px;">
+				<a href="topico/{{topico.url}}">{{ topico.titulo }}</a> <br>
+			</span>
+			{% endfor %}
+  		</div>
+  		<div id="divLateralDireitaInferior" style="border:1px solid #000000; margin: 300px 0px 0px 580px; width:200px; height:200px; position: relative;absolute;border-radius: 25px; ">
+			<br/>
+			{% for noticia in noticias %}
+				<span style="font:14px arial, sans-serif; padding: 5px 0px 0px 10px;">
+					<a href="{{noticia.url}}" target="_blank">{{ noticia.titulo }}</a> <br>
+				</span>
+			{% endfor %}
+		</div>
+
+		<div id="imgs" style="position: relative; margin:70px 0px 0px 40px; width: 900px;">
 		  <a href="http://facebook.com/giullianomorroni" target="_blank">
 			<img src="/static/imagens/img/facebook.png" style="margin-left: 50px; "/>
 		  </a>
